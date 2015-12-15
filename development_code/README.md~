@@ -19,11 +19,6 @@ Open index.html from the main directory and enjoy! Development code is located i
 3. Decided to defer loading of 'print.css' as the content wasn't critical to loading.
 Source: http://www.giftofspeed.com/defer-loading-css/
 4. Translated 'style.css' into style tags in header, inlined 'hero' class styles into only div where it applied and put 'content' class into larger 'li' style tag.
-5. Resized 'pizzeria.jpg' as it was far too large for how it was being used.
-
-####Part 3: Optimizing FPS for pizza.html
-
-1. 
 
 
 
