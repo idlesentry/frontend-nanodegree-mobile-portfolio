@@ -8,28 +8,28 @@ var gulp = require('gulp'),
 gulp.task('optimize-img', function() {
     return gulp.src('./img/*')
     .pipe(imagemin({ progressive: true }))
-    .pipe(gulp.dest('./build/img/'));
+    .pipe(gulp.dest('./dist/img/'));
 });
 
 gulp.task('minify-js', function () {
     	gulp.src('./js/**/*.js')
     	.pipe(uglify())
 	// .pipe(rename({prefix: 'min.'}))
-    	.pipe(gulp.dest('./build/js/'));
+    	.pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('minify-css', function () {
     	gulp.src('./css/**/*.css')
     	.pipe(minifyCSS())
 	// .pipe(rename({prefix: 'min.'}))
-    	.pipe(gulp.dest('./build/css/'));
+    	.pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('minify-html', function () {
     	gulp.src('./*.html')
     	.pipe(minifyHTML())
 	// .pipe(rename({prefix: 'min.'}))
-    	.pipe(gulp.dest('./build/'));
+    	.pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('default', ['minify-js', 'minify-css', 'minify-html', 'optimize-img']);

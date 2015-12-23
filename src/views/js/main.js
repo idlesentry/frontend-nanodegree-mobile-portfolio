@@ -507,20 +507,19 @@ function updatePositions() {
 
   //changed querySelectorAll to getElementsByClassName and then set up object with properties for phase and move defined in for loop below
   var items = document.getElementsByClassName('mover');
-  var phase = [];
-  
+      items.phase = [];
+      items.move = [];
+
   //declare variable for scrolling outside of loop
   var scrollTop = document.body.scrollTop / 1250;
   var len = items.length;
 
-  for (i = 0; i < 5; i ++) {
-    phase.push(Math.sin(scrollTop + i));
+  //replaced style.left with transform translateX
+  for (i = 0; i < len; i++) {
+    items[i].phase = Math.sin(scrollTop + (i % 5));
+    items[i].move = (items[i].basicLeft + 100 * items[i].phase) + 'px';
+    items[i].style.transform = 'translateX('+ items[i].move + ')';
   }
-
-   for (i = 0; i < len; i++) {
-      var move = phase[i % 5];
-      items[i].style.left = items[i].basicLeft + 100 * move + 'px';
-    }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -547,69 +546,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/backgroundPizza.png";
-    //had to subtract 1250 to get proper placement of 'movers' on larger screens
-    elem.basicLeft = (i % cols) * s - 1000;
+    //had to subtract 1000 to get proper placement of 'movers' on larger screens
+    elem.basicLeft = (i % cols) * s - 500;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  // updatePositions();
+  updatePositions();
 });
-
-var autoScroll = function() {
-
-  var speed = 0;
-  var scrollDir = 'down';
-  var viewport = window.innerHeight;
-  var bottom = document.body.scrollHeight;
-
-  var getSpeed = function() {
-    speed = prompt("Please Enter a Scroll Speed");
-    scrollMove();
-    stopButton();
-  };
-
-  var stopButton = function() {
-    scrolling = true;
-    var stop = document.createElement('button');
-    stop.innerText = 'Stop Scroll';
-    stop.style.position = 'fixed';
-    stop.style.top = 0;
-    stop.style.left = 0;
-    stop.onclick = function() {
-      if (scrolling) {
-        clearTimeout(scrolldelay);
-        scrolling = false;
-        stop.innerText = 'Start Scroll';
-      }
-      else {
-        speed = prompt("Please Enter a Scroll Speed");
-        scrollMove();
-        scrolling = true;
-        stop.innerText = 'Stop Scroll';
-      }
-    };
-    document.body.appendChild(stop);
-  };
-
-
-  var scrollMove = function() {
-    if (scrollDir === 'down') {
-      window.scrollBy(0,speed);
-      scrolldelay = setTimeout(scrollMove,10);
-    }
-    if (scrollDir ==='up') {
-      window.scrollBy(0,-speed);
-      scrolldelay = setTimeout(scrollMove,10);
-    }
-    var sp = document.body.scrollTop;
-    if (sp + viewport === bottom) {
-      scrollDir = 'up';
-    }
-    if (sp === 0) {
-      scrollDir = 'down';
-    }
-  };
-  getSpeed();
-};
-
-autoScroll();
