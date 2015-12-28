@@ -1,9 +1,9 @@
 var gulp = require('gulp'),
     	uglify = require('gulp-uglify'),
     	rename = require('gulp-rename'),
-	minifyCSS = require('gulp-minify-css'),
-	minifyHTML = require('gulp-minify-html');
-	imagemin = require('gulp-imagemin');
+	   minifyCSS = require('gulp-minify-css'),
+	   minifyHTML = require('gulp-minify-html');
+	   imagemin = require('gulp-imagemin');
 
 gulp.task('optimize-img', function() {
     return gulp.src('./img/*')

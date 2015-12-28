@@ -7,10 +7,10 @@ Open index.html from the main directory and enjoy! Development code is located i
 ####Part 1: GULP
 
 1. Installed node.js and npm in order to run GULP within the local directory.
-2. Installed nstalled 'gulp-uglify', 'gulp-minify-css', and 'gulp-minify-html' in order to minify all of the content for the site.
-3. After this came 'gulp-rename' in order to add the prefix 'min.' to the beginning of the new files' names.
-4. Deciding against this, I output the new files into the 'build' directory within 'development_code' and then moved them into the main directory as a workaround to avoid hassle of different filenames and directories in the github repo.
-5. After this, installed 'gulp-imagemin' in order to automatically compress all of the image files. I tweaked the directory name for images in the 'views' directory to 'img' (same as the main directory).
+2. Installed 'gulp-uglify', 'gulp-minify-css', and 'gulp-minify-html' in order to minify all of the content for the site.
+3. After this used 'gulp-rename' in order to add the prefix 'min.' to the beginning of the new files' names.
+4. After deciding against this, the new files were moved into the 'dist' directory and the source files were put into the 'src' directory.
+5. After this, installed 'gulp-imagemin' in order to automatically compress all of the image files. The directory name for images in the 'views' directory was changed to 'img' (same as the main directory).
 
 ####Part 2: Optimize PageSpeed Score for index.html
 
