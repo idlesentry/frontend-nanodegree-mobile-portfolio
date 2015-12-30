@@ -30,11 +30,15 @@ form {
   /*removed width here and resized the image used for the movers (now called backgroundPizza.png*/
     position: fixed;
     z-index: -1;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
 }
 
 .randomPizzaContainer {
     float: left;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 

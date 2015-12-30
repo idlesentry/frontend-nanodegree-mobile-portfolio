@@ -31,4 +31,19 @@ Open index.html from the main directory and enjoy! Development code is located i
 6. Removed resizing of backgroundPizza image in generation of sliding pizzas
 7. Had to subtract 500 to get proper placement of sliding pizzas on larger screens
 
+####Part 3.1: Editing pizza.html According to Feedback
+1. Instantiated phase variable outside of loop in updatePositions function. In this process, removed the properties 'items.phase' and 'items.move' and simply defined 'phase' inside the loop.
+2. Made sure to change 'basicLeft' property of 'elem' inside the function that generates pizzas to 'style.left' in order to get 'translateX' working correctly in updatePositions function (namely to solve the issue of moving pizzas not showing up on certain parts of larger screens).
+2. Instantiated 'elem' in function generating pizzas, then defined it in the loop as the creation of a new background pizza image.
+3. Declared variable outside of loop for generating pizzas 'movingPizzas' and changed call from 'querySelector' to the faster 'getElementByID'.
+4. Made sure to append the 'elem' object and all of it's properties to 'movingPizzas' inside the loop.
+5. Changed from 'querySelector' call to the faster 'getelementById' in determineDx function.
+6. Declared variable 'container' in function 'changePizzaSizes' to get element 'randomPizzaContainer', then used for each instances where 'getElementByID(#randomPizzaContainer)' is called.
+7. Moved 'pizzasDiv' variable outside of for loop (line 478) so that it doesn't get declared more than once.
+8. Added 'use strict' to beginning of main.js to run all code in file in strict mode according to feedback after some research (source: http://www.w3schools.com/js/js_strict.asp).
+
+
+
+
+
 
